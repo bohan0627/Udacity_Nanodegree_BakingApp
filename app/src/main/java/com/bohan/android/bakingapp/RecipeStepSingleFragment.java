@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
@@ -41,6 +43,17 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
         return stepSingleView;
     }
 
+    public static RecipeStepSingleFragment newInstance(String description, String videoUrl,
+                                                           String imageUrl) {
+
+        Bundle arguments = new Bundle();
+        arguments.putString(EXTRA_DESCRIPTION_ID, description);
+        arguments.putString(EXTRA_VIDEO_URL_ID, videoUrl);
+        arguments.putString(EXTRA_IMAGE_URL_ID, imageUrl);
+        RecipeStepSingleFragment fragment = new RecipeStepSingleFragment();
+        fragment.setArguments(arguments);
+        return fragment;
+    }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -82,5 +95,23 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
 
     }
 
+    @Override
+    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
 
+    }
+
+    @Override
+    public void onPlayerError(ExoPlaybackException error) {
+
+    }
+
+    @Override
+    public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+
+    }
+
+    @Override
+    public void onPositionDiscontinuity(int reason) {
+
+    }
 }
