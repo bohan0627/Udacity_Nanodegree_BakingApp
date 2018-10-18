@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp.Data.Local;
+package com.bohan.android.bakingapp.Utils;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -6,6 +6,9 @@ import android.database.Cursor;
 import com.bohan.android.bakingapp.BaseModel.Ingredient;
 import com.bohan.android.bakingapp.BaseModel.Recipe;
 import com.bohan.android.bakingapp.BaseModel.Step;
+import com.bohan.android.bakingapp.Data.Local.IngredientContract;
+import com.bohan.android.bakingapp.Data.Local.RecipeContract;
+import com.bohan.android.bakingapp.Data.Local.StepContract;
 
 import java.util.ArrayList;
 import java.util.List;
