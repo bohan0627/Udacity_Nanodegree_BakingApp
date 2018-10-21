@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp.Data.Local;
+package com.bohan.android.bakingapp.Data.LocalSource;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

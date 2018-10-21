@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp.Data.Local;
+package com.bohan.android.bakingapp.Data.LocalSource;
 
 public class RecipeContract {
     public static abstract class RecipeEntry {

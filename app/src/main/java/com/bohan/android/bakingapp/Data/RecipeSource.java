@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp.Data.source;
+package com.bohan.android.bakingapp.Data;
 
 import com.bohan.android.bakingapp.BaseModel.Ingredient;
 import com.bohan.android.bakingapp.BaseModel.Recipe;

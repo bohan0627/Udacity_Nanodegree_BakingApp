@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp.Data.Local;
+package com.bohan.android.bakingapp.Data.LocalSource;
 
 /**
  * @author Bo Han
@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.bohan.android.bakingapp.BaseModel.Ingredient;
 import com.bohan.android.bakingapp.BaseModel.Recipe;
 import com.bohan.android.bakingapp.BaseModel.Step;
-import com.bohan.android.bakingapp.Data.source.RecipeSource;
+import com.bohan.android.bakingapp.Data.RecipeSource;
 import com.bohan.android.bakingapp.Utils.DBUtilsCustomized;
 import com.squareup.sqlbrite3.BriteDatabase;
 //import com.squareup.sqlbrite3.BriteDatabase.Transaction;
