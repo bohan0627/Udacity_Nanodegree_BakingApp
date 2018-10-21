@@ -1,6 +1,8 @@
-package com.bohan.android.bakingapp;
+package com.bohan.android.bakingapp.MVP.Recipes.RecipeList;
 
 import com.bohan.android.bakingapp.BaseModel.Recipe;
+import com.bohan.android.bakingapp.MVP.BasePresenter;
+import com.bohan.android.bakingapp.MVP.BaseView;
 
 import java.util.List;
 

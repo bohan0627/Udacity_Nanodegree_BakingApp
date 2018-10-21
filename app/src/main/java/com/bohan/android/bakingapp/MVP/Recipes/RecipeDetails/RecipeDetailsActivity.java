@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp;
+package com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
+import com.bohan.android.bakingapp.R;
 import com.bohan.android.bakingapp.Utils.FragmentUtils;
 
 import javax.inject.Inject;

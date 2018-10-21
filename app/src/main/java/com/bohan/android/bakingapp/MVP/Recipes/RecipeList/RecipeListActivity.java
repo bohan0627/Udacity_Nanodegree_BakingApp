@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp;
+package com.bohan.android.bakingapp.MVP.Recipes.RecipeList;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.bohan.android.bakingapp.R;
 
 public class RecipeListActivity extends AppCompatActivity {
     @Override

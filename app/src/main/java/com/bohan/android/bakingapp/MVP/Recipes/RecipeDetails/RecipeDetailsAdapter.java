@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp;
+package com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bohan.android.bakingapp.BaseModel.Step;
+import com.bohan.android.bakingapp.R;
 
 import java.util.List;
 import java.util.Locale;

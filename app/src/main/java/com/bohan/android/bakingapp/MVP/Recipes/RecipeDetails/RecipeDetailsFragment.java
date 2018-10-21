@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp;
+package com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
