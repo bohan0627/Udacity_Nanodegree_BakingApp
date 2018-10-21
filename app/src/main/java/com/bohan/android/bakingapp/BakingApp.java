@@ -3,6 +3,7 @@ package com.bohan.android.bakingapp;
 import android.app.Application;
 
 import com.bohan.android.bakingapp.Data.RecipeRepo;
+import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 
 import timber.log.Timber;
