@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
+import com.bohan.android.bakingapp.Utils.FragmentUtils;
+
 import javax.inject.Inject;
 
 public class RecipeDetailsActivity extends AppCompatActivity {
@@ -39,7 +41,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         if (recipeDetailsFragment == null) {
             recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId);
-            FragmentUtils.addFragmentTo(getSupportFragmentManager(), recipeDetailsFragment,
+            FragmentUtils.addFragment(getSupportFragmentManager(), recipeDetailsFragment,
                     R.id.detailsFragmentContainer);
         }
 
