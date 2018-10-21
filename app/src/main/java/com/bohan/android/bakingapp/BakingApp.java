@@ -1,4 +1,41 @@
 package com.bohan.android.bakingapp;
 
-public class BakingApp {
+import android.app.Application;
+
+import com.bohan.android.bakingapp.Data.RecipeRepo;
+import com.squareup.leakcanary.LeakCanary;
+
+import timber.log.Timber;
+/**
+ * This class is partially aimed to analysis memory leak
+ */
+public class BakingApp extends Application {
+    private RecipeRepo recipeRepositoryComponent;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+
+            return;
+        }
+        LeakCanary.install(this);
+        //Baking app initilizing here
+
+        if (BuildConfig.DEBUG) {
+            Timber.uprootAll();
+            Timber.plant(new Timber.DebugTree());
+
+            Stetho.initializeWithDefaults(this);
+        }
+
+        recipeRepositoryComponent = DaggerRecipeRepositoryComponent.builder()
+                .bakingAppModule(new BakingAppModule(getApplicationContext()))
+                .build();
+    }
+
+    public RecipeRepositoryComponent getRecipeRepositoryComponent() {
+        return recipeRepositoryComponent;
+    }
 }
