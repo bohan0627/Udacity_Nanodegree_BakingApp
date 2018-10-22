@@ -87,7 +87,7 @@ dependencies {
 
     implementation 'com.gabrielittner.sqlite:support-db-requery:0.2.0'
     //implementation 'androidx.sqlite:sqlite:2.0.0-rc01'
-    implementation 'androidx.sqlite.db.SupportSQLiteOpenHelper'
+    //implementation 'androidx.sqlite.db.SupportSQLiteOpenHelper'
 }
 
 

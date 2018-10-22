@@ -32,7 +32,19 @@ public class RecipeRepo implements RecipeSource{
     }
     @Override
     public Observable<List<Recipe>> getRecipes() {
-        return null;
+        if (!prefsHelper.isRecipeListSynced()) {
+            return remoteSource
+                    .getRecipes()
+                    .compose(RxUtils.applySchedulers())
+                    .doOnNext(recipeList -> {
+                        localSource.storeRecipes(recipeList);
+                        prefsHelper.saveRecipeNamesList(recipeList);
+                    });
+        } else {
+            return localSource
+                    .getRecipes()
+                    .compose(RxUtils.applySchedulers());
+        }
     }
 
     @Override
