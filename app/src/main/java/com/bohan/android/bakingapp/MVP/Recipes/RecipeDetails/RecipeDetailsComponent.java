@@ -1,7 +1,7 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails;
 
 
-import com.bohan.android.bakingapp.Data.RemoteSource.RecipeRepoComponent;
+import com.bohan.android.bakingapp.Data.RecipeRepoComponent;
 import com.bohan.android.bakingapp.FragmentScoped;
 
 import dagger.Component;

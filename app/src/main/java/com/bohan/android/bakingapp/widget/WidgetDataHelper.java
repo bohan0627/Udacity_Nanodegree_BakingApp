@@ -15,8 +15,8 @@ public class WidgetDataHelper {
     private final RecipeRepo recipeRepository;
 
     @Inject
-    public WidgetDataHelper(RecipeRepo recipeRepo) {
-        recipeRepository = recipeRepo;
+    public WidgetDataHelper(RecipeRepo recipeRepository) {
+        this.recipeRepository = recipeRepository;
     }
 
     Set<String> getRecipeNamesFromPrefs() {

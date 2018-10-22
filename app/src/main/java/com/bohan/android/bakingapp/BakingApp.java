@@ -2,9 +2,9 @@ package com.bohan.android.bakingapp;
 
 import android.app.Application;
 
-import com.bohan.android.bakingapp.Data.RecipeRepo;
-import com.bohan.android.bakingapp.Data.RemoteSource.DaggerRecipeRepoComponent;
-import com.bohan.android.bakingapp.Data.RemoteSource.RecipeRepoComponent;
+import com.bohan.android.bakingapp.Data.DaggerRecipeRepoComponent;
+import com.bohan.android.bakingapp.Data.RecipeRepoComponent;
+//import com.bohan.android.bakingapp.Data.DaggerRecipeRepoComponent;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 //import com.facebook.stetho.Stetho;

@@ -7,6 +7,7 @@ import android.content.Context;
 //import android.support.v4.app.FragmentPagerAdapter;
 
 import com.bohan.android.bakingapp.BaseModel.Step;
+import com.bohan.android.bakingapp.R;
 
 import java.util.List;
 import java.util.Locale;
@@ -19,28 +20,27 @@ import io.reactivex.annotations.Nullable;
 
 public class RecipeStepsAdapter extends FragmentPagerAdapter {
 
-    private final String title;
     private List<Step> steps;
+    private final String tabTitle;
 
-    public RecipeStepsAdapter(Context context, List<Step> steps, FragmentManager manager){
-        super(manager);
-        title = "Step: ${count}";
+    RecipeStepsAdapter(FragmentManager fm, List<Step> steps, Context context) {
+        super(fm);
         setSteps(steps);
+        tabTitle = context.getResources().getString(R.string.recipe_step_tab_label);
+    }
+
+    public void setSteps(@NonNull List<Step> steps) {
+        this.steps = steps;
+        notifyDataSetChanged();
     }
 
     @Override
-    public Fragment getItem(int stepPosition) {
-        Fragment item = RecipeStepSingleFragment.newInstance(
-                steps.get(stepPosition).description(),
-                steps.get(stepPosition).videoURL(),
-                steps.get(stepPosition).thumbnailURL());
-
-        return item;
-    }
-
-    public void setSteps(@NonNull List<Step> steps){
-        this.steps = steps;
-        notifyDataSetChanged();
+    public Fragment getItem(int position) {
+        return RecipeStepSingleFragment.newInstance(
+                steps.get(position).description(),
+                steps.get(position).videoURL(),
+                steps.get(position).thumbnailURL()
+        );
     }
 
     @Override
@@ -48,9 +48,8 @@ public class RecipeStepsAdapter extends FragmentPagerAdapter {
         return steps.size();
     }
 
-    @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return String.format(Locale.US, title, position);
+        return String.format(Locale.US, tabTitle, position);
     }
 }

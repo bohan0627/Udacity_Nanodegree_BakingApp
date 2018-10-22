@@ -49,7 +49,7 @@ public class RecipeDetailsAdapter extends RecyclerView.Adapter<RecipeDetailsAdap
 
     @Override
     public long getItemId(int position) {
-        return steps.get(position).id();;
+        return steps.get(position).id();
     }
 
     @Override

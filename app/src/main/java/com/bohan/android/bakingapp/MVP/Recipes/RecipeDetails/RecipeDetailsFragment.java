@@ -25,7 +25,7 @@ import butterknife.Unbinder;
 import com.bohan.android.bakingapp.BaseModel.Ingredient;
 import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps.RecipeStepSingleFragment;
-import com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps.RecipeStepsAcitivity;
+import com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps.RecipeStepsActivity;
 import com.bohan.android.bakingapp.R;
 import com.bohan.android.bakingapp.Utils.FragmentUtils;
 import com.bohan.android.bakingapp.Utils.StringUtils;
@@ -155,7 +155,7 @@ public class RecipeDetailsFragment extends Fragment implements RecipeDetailsCont
         if (twoPaneMode) {
             recipeDetailsPresenter.fetchStepData(stepId);
         } else {
-            startActivity(RecipeStepsAcitivity.parseIntent(getContext(), recipeId, stepId));
+            startActivity(RecipeStepsActivity.prepareIntent(getContext(), recipeId, stepId));
         }
     }
 

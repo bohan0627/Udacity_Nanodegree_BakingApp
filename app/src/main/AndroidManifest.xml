@@ -30,7 +30,7 @@
         </activity>
         <activity
             android:label="@string/step_activity_title"
-            android:name=".MVP.Recipes.RecipeSteps.RecipeStepsAcitivity"
+            android:name=".MVP.Recipes.RecipeSteps.RecipeStepsActivity"
             android:parentActivityName=".MVP.Recipes.RecipeDetails.RecipeDetailsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -56,11 +56,10 @@ public class WidgetConfigActivity extends AppCompatActivity {
         disposableList = new CompositeDisposable();
 
         DaggerWidgetDataHelperComponent.builder()
-                .recipeRepo(
+                .recipeRepoComponent(
                         ((BakingApp) getApplication()).getRecipeRepositoryComponent())
                 .build()
                 .inject(this);
-
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -153,4 +152,3 @@ public class WidgetConfigActivity extends AppCompatActivity {
         button.setSupportButtonTintList(colorStateList);
     }
 }
-

@@ -17,6 +17,7 @@ import javax.inject.Inject;
 import timber.log.Timber;
 
 public class WidgetProvider extends AppWidgetProvider {
+
     @Inject
     WidgetDataHelper widgetDataHelper;
 
@@ -27,7 +28,7 @@ public class WidgetProvider extends AppWidgetProvider {
         Timber.d("onUpdate");
 
         DaggerWidgetDataHelperComponent.builder()
-                .recipeRepositoryComponent(
+                .recipeRepoComponent(
                         ((BakingApp) context.getApplicationContext()).getRecipeRepositoryComponent())
                 .build()
                 .inject(this);
@@ -55,7 +56,7 @@ public class WidgetProvider extends AppWidgetProvider {
         super.onDeleted(context, appWidgetIds);
 
         DaggerWidgetDataHelperComponent.builder()
-                .recipeRepositoryComponent(
+                .recipeRepoComponent(
                         ((BakingApp) context.getApplicationContext()).getRecipeRepositoryComponent())
                 .build()
                 .inject(this);
@@ -88,5 +89,6 @@ public class WidgetProvider extends AppWidgetProvider {
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
+
 }
 
