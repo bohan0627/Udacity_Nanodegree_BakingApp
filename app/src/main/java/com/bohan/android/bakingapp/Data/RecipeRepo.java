@@ -7,6 +7,7 @@ import com.bohan.android.bakingapp.BaseModel.Recipe;
 import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.Data.LocalSource.LocalRetention;
 import com.bohan.android.bakingapp.Data.RemoteSource.RemoteRetention;
+import com.bohan.android.bakingapp.PrefsHelper;
 import com.bohan.android.bakingapp.Utils.RxUtils;
 
 import java.util.List;
@@ -19,13 +20,15 @@ public class RecipeRepo implements RecipeSource{
 
     private final RecipeSource localSource;
     private final RecipeSource remoteSource;
+    private final PrefsHelper prefsHelper;
 
     @Inject
     public RecipeRepo(@LocalRetention RecipeSource localSource,
-                      @RemoteRetention RecipeSource remoteSource){
+                      @RemoteRetention RecipeSource remoteSource,
+                      PrefsHelper prefsHelper){
         this.localSource = localSource;
         this.remoteSource = remoteSource;
-
+        this.prefsHelper = prefsHelper;
     }
     @Override
     public Observable<List<Recipe>> getRecipes() {
@@ -56,5 +59,17 @@ public class RecipeRepo implements RecipeSource{
     @Override
     public void storeRecipes(List<Recipe> recipes) {
         localSource.storeRecipes(recipes);
+    }
+
+    public void saveRecipes(List<Recipe> recipes) {
+        localSource.storeRecipes(recipes);
+    }
+
+    public void markRepoAsSynced(boolean synced) {
+        prefsHelper.setRecipeListSynced(synced);
+    }
+
+    public PrefsHelper getPreferencesHelper() {
+        return prefsHelper;
     }
 }

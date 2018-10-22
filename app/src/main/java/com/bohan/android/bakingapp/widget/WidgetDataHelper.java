@@ -1,5 +1,6 @@
 package com.bohan.android.bakingapp.widget;
 
+import com.bohan.android.bakingapp.BaseModel.Ingredient;
 import com.bohan.android.bakingapp.Data.RecipeRepo;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class WidgetDataHelper {
 
     @Inject
     public WidgetDataHelper(RecipeRepo recipeRepo) {
-        recipeRepository = ecipeRepo;
+        recipeRepository = recipeRepo;
     }
 
     Set<String> getRecipeNamesFromPrefs() {
@@ -35,6 +36,6 @@ public class WidgetDataHelper {
     }
 
     Observable<List<Ingredient>> getIngredientsList(String recipeName) {
-        return recipeRepository.getRecipeIngredients(recipeName);
+        return recipeRepository.getIngredientsByName(recipeName);
     }
 }
