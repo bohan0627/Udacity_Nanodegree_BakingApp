@@ -4,6 +4,9 @@ import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * @author bohan
+ */
 
 public class ObservableUtils {
     public static <T> ObservableTransformer<T, T> applySchedulers() {

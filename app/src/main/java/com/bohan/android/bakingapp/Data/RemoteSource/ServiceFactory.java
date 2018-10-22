@@ -1,11 +1,14 @@
 package com.bohan.android.bakingapp.Data.RemoteSource;
 
+import com.bohan.android.bakingapp.Utils.GsonUtils;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceFactory {
     public static <T> T createFrom(Class<T> serviceClass, String endpoint) {
@@ -15,7 +18,7 @@ public class ServiceFactory {
                 .build();
 
         Gson gson = new GsonBuilder()
-                .registerTypeAdapterFactory(MyGsonAdapterFactory.create())
+                .registerTypeAdapterFactory(GsonUtils.create())
                 .create();
 
         Retrofit retrofit = new Retrofit.Builder()
