@@ -9,17 +9,29 @@ import com.squareup.sqlbrite3.SqlBrite;
 
 import javax.inject.Singleton;
 
+
+import androidx.sqlite.db.SupportSQLiteOpenHelper;
+import dagger.Module;
 import dagger.Provides;
-import io.reactivex.annotations.NonNull;
+import androidx.annotation.NonNull;
+import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
+
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
 
+@Module
 public class DBModule {
     @Singleton
     @Provides
     @NonNull
     BriteDatabase provideBriteDatabase(SqlBrite sqlBrite, DBHelper dbHelper, Scheduler scheduler) {
-        return sqlBrite.wrapDatabaseHelper(dBHelper, scheduler);
+        SupportSQLiteOpenHelper.Configuration config = SupportSQLiteOpenHelper.Configuration.builder(context)
+                .name("database-name.db")
+                .callback(dbHelper)
+                .build();
+        SupportSQLiteOpenHelper helper = new RequerySQLiteOpenHelperFactory().create(config);
+        BriteDatabase db = sqlBrite.wrapDatabaseHelper(helper, scheduler);
+        return db;
     }
 
     @Singleton
@@ -33,7 +45,7 @@ public class DBModule {
     @Provides
     @NonNull
     DBHelper provideDbHelper(@ApplicationContext Context context) {
-        return new DbHelper(context);
+        return new DBHelper(context);
     }
 
     @Provides

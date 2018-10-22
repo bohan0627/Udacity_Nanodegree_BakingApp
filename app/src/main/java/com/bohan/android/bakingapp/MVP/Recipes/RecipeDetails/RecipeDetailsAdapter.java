@@ -96,10 +96,10 @@ public class RecipeDetailsAdapter extends RecyclerView.Adapter<RecipeDetailsAdap
 
         void bindTo(@NonNull Step step, int bindPosition) {
 
-            currentId = step.id();
+            curId = step.id();
 
             String description = step.shortDescription();
-            stepDescription.setText(String.format(Locale.US, "%d. %s", currentId, description));
+            stepDescription.setText(String.format(Locale.US, "%d. %s", curId, description));
 
             String video = step.videoURL();
 
@@ -109,7 +109,7 @@ public class RecipeDetailsAdapter extends RecyclerView.Adapter<RecipeDetailsAdap
                 videoIcon.setVisibility(View.VISIBLE);
             }
 
-            if (currentPos == bindPosition) {
+            if (curPosition == bindPosition) {
                 stepItemLayout.setBackgroundColor(currentItemBackground);
             } else {
                 stepItemLayout.setBackgroundColor(normalItemBackground);

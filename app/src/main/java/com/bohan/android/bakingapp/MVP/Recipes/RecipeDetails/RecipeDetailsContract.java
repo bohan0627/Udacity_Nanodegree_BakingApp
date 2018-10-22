@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface RecipeDetailsContract {
 
-    interface DetailsView extends BaseView<Presenter> {
+    interface View extends BaseView<Presenter> {
 
         void ingredientsList(List<Ingredient> ingredients);
 

@@ -36,7 +36,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_recipe_details);
 
-        setUpActionBar();
+        setActionBar();
 
         int recipeId = getIntent().getIntExtra(EXTRA_RECIPE_ID, DEFAULT_RECIPE_ID);
 
@@ -51,7 +51,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         }
 
         DaggerRecipeDetailsComponent.builder()
-                .recipeRepositoryComponent(((BakingApp) getApplication()).getRecipeRepositoryComponent())
+                .recipeRepoComponent(((BakingApp) getApplication()).getRecipeRepositoryComponent())
                 .recipeDetailsPresenterModule(new RecipeDetailsPresenterModule(recipeDetailsFragment, recipeId))
                 .build()
                 .inject(this);

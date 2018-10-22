@@ -9,8 +9,9 @@ import com.squareup.sqlbrite3.BriteDatabase;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
-
+@Module
 public class RecipeRepoModule {
 
     @Singleton

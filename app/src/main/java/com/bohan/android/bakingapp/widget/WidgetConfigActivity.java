@@ -21,6 +21,7 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import androidx.core.content.ContextCompat;
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,16 +50,17 @@ public class WidgetConfigActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setResult(RESULT_CANCELED);
-        setContentView(R.layout.widget_configuration_activity);
+        setContentView(R.layout.widget_configuration);
         ButterKnife.bind(this);
 
         disposableList = new CompositeDisposable();
 
         DaggerWidgetDataHelperComponent.builder()
-                .recipeRepositoryComponent(
+                .recipeRepo(
                         ((BakingApp) getApplication()).getRecipeRepositoryComponent())
                 .build()
                 .inject(this);
+
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();

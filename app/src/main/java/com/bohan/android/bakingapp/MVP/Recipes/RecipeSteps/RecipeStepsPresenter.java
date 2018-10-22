@@ -45,7 +45,7 @@ public class RecipeStepsPresenter implements RecipeStepsContract.Presenter {
     @Override
     public void loadSteps() {
         Disposable subscription = recipeRepository
-                .getIngredientsById(recipeId)
+                .getSteps(recipeId)
                 .subscribe(
                         // OnNext
                         steps -> {

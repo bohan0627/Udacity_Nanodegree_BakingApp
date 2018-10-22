@@ -13,7 +13,7 @@ public abstract class Ingredient {
     public abstract String ingredient();
 
     public static Builder builder(){
-        return new Ingredient.Builder();
+        return new AutoValue_Ingredient.Builder();
     }
 
     @AutoValue.Builder
