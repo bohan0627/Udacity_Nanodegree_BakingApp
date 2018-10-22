@@ -3,8 +3,11 @@ package com.bohan.android.bakingapp;
 import android.app.Application;
 
 import com.bohan.android.bakingapp.Data.RecipeRepo;
+import com.bohan.android.bakingapp.Data.RemoteSource.RecipeRepoComponent;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
+//import com.facebook.stetho.Stetho;
+//import com.squareup.leakcanary.LeakCanary;
 
 import timber.log.Timber;
 /**
@@ -32,11 +35,11 @@ public class BakingApp extends Application {
         }
 
         recipeRepositoryComponent = DaggerRecipeRepositoryComponent.builder()
-                .bakingAppModule(new BakingAppModule(getApplicationContext()))
+                .bakingAppModule(new BakingModule(getApplicationContext()))
                 .build();
     }
 
-    public RecipeRepositoryComponent getRecipeRepositoryComponent() {
+    public RecipeRepoComponent getRecipeRepositoryComponent() {
         return recipeRepositoryComponent;
     }
 }

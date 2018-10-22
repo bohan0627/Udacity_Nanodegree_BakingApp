@@ -1,7 +1,8 @@
 package com.bohan.android.bakingapp;
 
-import android.support.annotation.Nullable;
-import android.support.test.espresso.IdlingResource;
+//import android.support.annotation.Nullable;
+//import android.support.test.espresso.IdlingResource;
+import androidx.test.espresso.IdlingResource;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

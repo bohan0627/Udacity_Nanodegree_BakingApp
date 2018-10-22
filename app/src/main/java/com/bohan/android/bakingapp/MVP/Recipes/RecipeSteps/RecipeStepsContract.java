@@ -13,7 +13,7 @@ import java.util.List;
 public interface RecipeStepsContract {
 
 
-    interface StepsView extends BaseView<RecipeDetailsContract.Presenter> {
+    interface View extends BaseView<Presenter> {
 
         void showStepsInViewpager(List<Step> steps);
 
@@ -25,7 +25,7 @@ public interface RecipeStepsContract {
     /**
      * This method is for moving steps to associated Adapter
      */
-    interface StepsPresenter extends BasePresenter {
+    interface Presenter extends BasePresenter {
 
         void loadSteps();
     }

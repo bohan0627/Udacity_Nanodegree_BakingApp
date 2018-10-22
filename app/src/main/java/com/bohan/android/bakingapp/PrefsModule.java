@@ -1,13 +1,15 @@
 package com.bohan.android.bakingapp;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
+
 
 import javax.inject.Singleton;
 
 import dagger.Provides;
+import io.reactivex.annotations.NonNull;
 
-public class PrefsMoudle {
+public class PrefsModule {
     @Singleton
     @Provides
     @NonNull

@@ -1,6 +1,7 @@
 package com.bohan.android.bakingapp.widget;
 
 import com.bohan.android.bakingapp.Data.RecipeRepo;
+import com.bohan.android.bakingapp.Utils.ProviderScoped;
 
 import dagger.Component;
 

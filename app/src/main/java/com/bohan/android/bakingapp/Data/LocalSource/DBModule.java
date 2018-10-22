@@ -1,14 +1,16 @@
 package com.bohan.android.bakingapp.Data.LocalSource;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
 
+import com.bohan.android.bakingapp.ApplicationContext;
 import com.squareup.sqlbrite3.BriteDatabase;
 import com.squareup.sqlbrite3.SqlBrite;
 
 import javax.inject.Singleton;
 
 import dagger.Provides;
+import io.reactivex.annotations.NonNull;
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
 
@@ -16,7 +18,7 @@ public class DBModule {
     @Singleton
     @Provides
     @NonNull
-    BriteDatabase provideBriteDatabase(SqlBrite sqlBrite, DbHelper dbHelper, Scheduler scheduler) {
+    BriteDatabase provideBriteDatabase(SqlBrite sqlBrite, DBHelper dbHelper, Scheduler scheduler) {
         return sqlBrite.wrapDatabaseHelper(dBHelper, scheduler);
     }
 
