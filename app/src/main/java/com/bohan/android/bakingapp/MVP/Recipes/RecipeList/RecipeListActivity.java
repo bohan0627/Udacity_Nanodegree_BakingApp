@@ -5,12 +5,29 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
+import androidx.test.espresso.IdlingResource;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.bohan.android.bakingapp.R;
+import com.bohan.android.bakingapp.RecipesIdlingResource;
+
+import javax.inject.Inject;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class RecipeListActivity extends AppCompatActivity {
+
+    @Inject
+    RecipeListPresenter recipeListPresenter;
+
+    @Nullable
+    private RecipesIdlingResource idlingResource;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

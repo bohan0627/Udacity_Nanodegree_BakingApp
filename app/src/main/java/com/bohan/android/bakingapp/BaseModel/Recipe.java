@@ -3,7 +3,6 @@ package com.bohan.android.bakingapp.BaseModel;
 import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
-import com.goog
 
 import java.util.List;
 

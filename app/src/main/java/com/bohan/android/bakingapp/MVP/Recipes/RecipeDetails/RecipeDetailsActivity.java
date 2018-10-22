@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 
+import com.bohan.android.bakingapp.BakingApp;
 import com.bohan.android.bakingapp.R;
 import com.bohan.android.bakingapp.Utils.FragmentUtils;
+import androidx.appcompat.app.AppCompatActivity;
 
 import javax.inject.Inject;
 

@@ -5,10 +5,14 @@ import android.support.test.espresso.IdlingResource;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import androidx.test.espresso.IdlingResource;
+import androidx.annotation.Nullable;
+
+
 public class RecipesIdlingResource implements IdlingResource {
 
     @Nullable
-    private volatile ResourceCallback callback;
+    private volatile IdlingResource.ResourceCallback callback;
 
     private AtomicBoolean isIdleNow = new AtomicBoolean(true);
 
