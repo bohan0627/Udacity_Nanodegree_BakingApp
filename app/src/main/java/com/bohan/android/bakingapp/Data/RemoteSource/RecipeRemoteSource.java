@@ -8,12 +8,17 @@ import com.bohan.android.bakingapp.Utils.RxUtils;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Observable;
 import timber.log.Timber;
-
+@Singleton
 public class RecipeRemoteSource implements RecipeSource {
 
     private final RecipeRemoteService service;
+
+    @Inject
     public RecipeRemoteSource(RecipeRemoteService service){
         this.service = service;
     }

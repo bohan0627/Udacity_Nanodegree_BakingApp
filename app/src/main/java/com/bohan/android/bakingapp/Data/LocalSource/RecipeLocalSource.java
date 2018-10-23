@@ -11,7 +11,7 @@ import com.bohan.android.bakingapp.BaseModel.Recipe;
 import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.Data.RecipeSource;
 import com.bohan.android.bakingapp.Utils.DBUtilsCustomized;
-import com.squareup.sqlbrite3.BriteDatabase;
+import com.squareup.sqlbrite2.BriteDatabase;
 //import com.squareup.sqlbrite3.BriteDatabase.Transaction;
 //import hu.akarnokd.rxjava.interop.RxJavaInterop;
 
@@ -87,16 +87,16 @@ public class RecipeLocalSource implements RecipeSource {
                 int recipeId = recipe.id();
 
                 for (Ingredient ingredient : recipe.ingredients()) {
-                    briteDB.insert(IngredientContract.IngredientEntry.TABLE_NAME, SQLiteDatabase.CONFLICT_ABORT,
+                    briteDB.insert(IngredientContract.IngredientEntry.TABLE_NAME,
                             DBUtilsCustomized.ingredientContentValues(ingredient, recipeId));
                 }
 
                 for (Step step : recipe.steps()) {
-                    briteDB.insert(StepContract.StepEntry.TABLE_NAME, SQLiteDatabase.CONFLICT_ABORT,
+                    briteDB.insert(StepContract.StepEntry.TABLE_NAME,
                             DBUtilsCustomized.stepsContentValues(step, recipeId));
                 }
 
-                briteDB.insert(RecipeContract.RecipeEntry.TABLE_NAME, SQLiteDatabase.CONFLICT_ABORT,
+                briteDB.insert(RecipeContract.RecipeEntry.TABLE_NAME,
                         DBUtilsCustomized.recipesContentValues(recipe));
             }
 

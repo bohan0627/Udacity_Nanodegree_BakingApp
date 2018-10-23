@@ -1,8 +1,7 @@
-package com.bohan.android.bakingapp.Data.RemoteSource;
+package com.bohan.android.bakingapp.Data;
 
 import com.bohan.android.bakingapp.BakingModule;
 import com.bohan.android.bakingapp.Data.LocalSource.DBModule;
-import com.bohan.android.bakingapp.Data.RecipeRepo;
 import com.bohan.android.bakingapp.PrefsModule;
 
 import javax.inject.Singleton;

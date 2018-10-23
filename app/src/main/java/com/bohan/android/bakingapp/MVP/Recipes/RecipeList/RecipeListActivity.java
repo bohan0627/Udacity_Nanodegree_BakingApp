@@ -13,8 +13,10 @@ import androidx.test.espresso.IdlingResource;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.bohan.android.bakingapp.BakingApp;
 import com.bohan.android.bakingapp.R;
 import com.bohan.android.bakingapp.RecipesIdlingResource;
+import com.bohan.android.bakingapp.Utils.FragmentUtils;
 
 import javax.inject.Inject;
 
@@ -29,28 +31,47 @@ public class RecipeListActivity extends AppCompatActivity {
     private RecipesIdlingResource idlingResource;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_recipe_list);
+
+        RecipeListFragment recipeListFragment =
+                (RecipeListFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
+
+        if (recipeListFragment == null) {
+            recipeListFragment = RecipeListFragment.newInstance();
+            FragmentUtils.addFragment(getSupportFragmentManager(), recipeListFragment,
+                    R.id.fragmentContainer);
+        }
+
+        DaggerRecipeListComponent.builder()
+                .recipeRepoComponent(((BakingApp) getApplication()).getRecipeRepositoryComponent())
+                .recipeListPresenterModule(new RecipeListPresenterModule(recipeListFragment))
+                .build()
+                .inject(this);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int recipeId = item.getItemId();
-        if(recipeId == R.id.action_refresh){
 
+        int id = item.getItemId();
+
+        if(id == R.id.action_refresh) {
+            recipeListPresenter.loadRecipesFromRepo(true, idlingResource);
+            return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * This method is only visible to unit-test
-     * @return IdlingResource
-     */
+
+
     @VisibleForTesting
     @NonNull
     public IdlingResource getIdlingResource() {

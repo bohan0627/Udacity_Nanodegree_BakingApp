@@ -4,20 +4,24 @@ import android.content.Context;
 //import android.support.annotation.NonNull;
 
 import com.bohan.android.bakingapp.ApplicationContext;
-import com.squareup.sqlbrite3.BriteDatabase;
-import com.squareup.sqlbrite3.SqlBrite;
+//import com.squareup.sqlbrite3.BriteDatabase;
+//import com.squareup.sqlbrite3.SqlBrite;
+import com.squareup.sqlbrite2.SqlBrite;
+import com.squareup.sqlbrite2.BriteDatabase;
 
 import javax.inject.Singleton;
 
 
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
+//import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import dagger.Module;
 import dagger.Provides;
 import androidx.annotation.NonNull;
-import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
+//import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 
-import rx.Scheduler;
-import rx.schedulers.Schedulers;
+import io.reactivex.Scheduler;
+import io.reactivex.schedulers.Schedulers;
+//import rx.Scheduler;
+//import rx.schedulers.Schedulers;
 
 @Module
 public class DBModule {
@@ -25,13 +29,7 @@ public class DBModule {
     @Provides
     @NonNull
     BriteDatabase provideBriteDatabase(SqlBrite sqlBrite, DBHelper dbHelper, Scheduler scheduler) {
-        SupportSQLiteOpenHelper.Configuration config = SupportSQLiteOpenHelper.Configuration.builder(context)
-                .name("database-name.db")
-                .callback(dbHelper)
-                .build();
-        SupportSQLiteOpenHelper helper = new RequerySQLiteOpenHelperFactory().create(config);
-        BriteDatabase db = sqlBrite.wrapDatabaseHelper(helper, scheduler);
-        return db;
+        return sqlBrite.wrapDatabaseHelper(dbHelper,scheduler);
     }
 
     @Singleton

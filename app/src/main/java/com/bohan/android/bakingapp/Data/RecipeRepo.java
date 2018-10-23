@@ -10,12 +10,15 @@ import com.bohan.android.bakingapp.Data.RemoteSource.RemoteRetention;
 import com.bohan.android.bakingapp.PrefsHelper;
 import com.bohan.android.bakingapp.Utils.RxUtils;
 
+
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 
+@Singleton
 public class RecipeRepo implements RecipeSource{
 
     private final RecipeSource localSource;
@@ -73,15 +76,12 @@ public class RecipeRepo implements RecipeSource{
         localSource.storeRecipes(recipes);
     }
 
-    public void saveRecipes(List<Recipe> recipes) {
-        localSource.storeRecipes(recipes);
+    public PrefsHelper getPreferencesHelper() {
+        return prefsHelper;
     }
 
     public void markRepoAsSynced(boolean synced) {
         prefsHelper.setRecipeListSynced(synced);
     }
 
-    public PrefsHelper getPreferencesHelper() {
-        return prefsHelper;
-    }
 }

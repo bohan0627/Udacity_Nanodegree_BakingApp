@@ -5,12 +5,13 @@ import com.bohan.android.bakingapp.Data.LocalSource.RecipeLocalSource;
 import com.bohan.android.bakingapp.Data.RemoteSource.RecipeRemoteService;
 import com.bohan.android.bakingapp.Data.RemoteSource.RecipeRemoteSource;
 import com.bohan.android.bakingapp.Data.RemoteSource.RemoteRetention;
-import com.squareup.sqlbrite3.BriteDatabase;
+import com.squareup.sqlbrite2.BriteDatabase;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+
 @Module
 public class RecipeRepoModule {
 
