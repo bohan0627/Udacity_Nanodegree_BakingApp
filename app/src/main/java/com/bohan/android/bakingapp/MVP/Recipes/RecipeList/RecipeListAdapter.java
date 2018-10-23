@@ -2,6 +2,7 @@ package com.bohan.android.bakingapp.MVP.Recipes.RecipeList;
 
 //import android.support.annotation.NonNull;
 //import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -22,47 +23,44 @@ import butterknife.ButterKnife;
 
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {
 
-    private List<Recipe> recipesList;
-    private final RecipesOnClickListener recipesListenter;
+    private List<Recipe> recipeList;
+    final OnRecipeClickListener recipeClickListener;
 
-    RecipeListAdapter(List<Recipe> recipes, RecipesOnClickListener listener) {
+    RecipeListAdapter(List<Recipe> recipes, OnRecipeClickListener listener) {
         setRecipes(recipes);
-        recipesListenter = listener;
-    }
-
-    public interface RecipesOnClickListener {
-
-        void recipeClicked(int recipeId);
-    }
-
-    @NonNull
-    @Override
-    public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+        recipeClickListener = listener;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecipeViewHolder recipeViewHolder, int i) {
+    public RecipeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.fragment_recipe_list_item, parent, false);
 
+        return new RecipeViewHolder(view);
     }
 
     @Override
-    public long getItemId(int position) {
-        return recipesList.get(position).id();
+    public void onBindViewHolder(RecipeViewHolder holder, int position) {
+        holder.bindTo(recipeList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return recipesList.size();
+        return recipeList.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return recipeList.get(position).id();
+    }
+
+    void updateRecipeList(List<Recipe> recipes) {
+        setRecipes(recipes);
+        notifyDataSetChanged();
     }
 
     private void setRecipes(@NonNull List<Recipe> recipes) {
-        recipesList = recipes;
-    }
-
-    public void updateStepsList(List<Recipe> recipes) {
-        setRecipes(recipes);
-        notifyDataSetChanged();
+        recipeList = recipes;
     }
 
     class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -97,8 +95,12 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
         @Override
         public void onClick(View v) {
-            recipesListenter.recipeClicked(currentId);
+            recipeClickListener.recipeClicked(currentId);
         }
     }
 
+    interface OnRecipeClickListener {
+
+        void recipeClicked(int recipeId);
+    }
 }

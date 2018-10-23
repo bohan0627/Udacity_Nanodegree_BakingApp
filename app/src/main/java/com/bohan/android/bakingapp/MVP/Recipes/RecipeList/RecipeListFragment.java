@@ -114,7 +114,7 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
 
     @Override
     public void showRecipeList(List<Recipe> recipeList) {
-        recipeListAdapter.updateStepsList(recipeList);
+        recipeListAdapter.updateRecipeList(recipeList);
     }
 
     @Override
