@@ -70,7 +70,7 @@ public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.Even
 
     public static RecipeStepSingleFragment newInstance(String description, String videoUrl,
                                                            String imageUrl) {
-
+        //
         Bundle arguments = new Bundle();
         arguments.putString(EXTRA_DESCRIPTION_ID, description);
         arguments.putString(EXTRA_VIDEO_URL_ID, videoUrl);
