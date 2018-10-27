@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp.Utils;
+package com.bohan.android.bakingapp.MVP.Utils;
 
 /**
  * Created by Bo Han.

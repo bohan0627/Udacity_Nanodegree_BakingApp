@@ -1,12 +1,12 @@
-package com.bohan.android.bakingapp.widget;
+package com.bohan.android.bakingapp.MVP.widget;
 
 /**
  * Created by Bo Han.
  */
 
-import com.bohan.android.bakingapp.BakingModule;
+import com.bohan.android.bakingapp.MVP.BakingModule;
 import com.bohan.android.bakingapp.Data.RecipeRepoComponent;
-import com.bohan.android.bakingapp.Utils.ProviderScoped;
+import com.bohan.android.bakingapp.MVP.Utils.ProviderScoped;
 
 import dagger.Component;
 

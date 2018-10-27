@@ -4,7 +4,7 @@ package com.bohan.android.bakingapp.Data.RemoteSource;
  * Created by Bo Han.
  */
 
-import com.bohan.android.bakingapp.Utils.GsonUtils;
+import com.bohan.android.bakingapp.MVP.Utils.GsonUtils;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

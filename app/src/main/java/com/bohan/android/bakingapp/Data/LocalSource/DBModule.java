@@ -5,7 +5,7 @@ package com.bohan.android.bakingapp.Data.LocalSource;
  */
 
 import android.content.Context;
-import com.bohan.android.bakingapp.ApplicationContext;
+import com.bohan.android.bakingapp.MVP.Utils.ApplicationContext;
 import com.squareup.sqlbrite2.SqlBrite;
 import com.squareup.sqlbrite2.BriteDatabase;
 import javax.inject.Singleton;

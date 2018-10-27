@@ -10,8 +10,8 @@ import com.bohan.android.bakingapp.BaseModel.Recipe;
 import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.Data.LocalSource.LocalRetention;
 import com.bohan.android.bakingapp.Data.RemoteSource.RemoteRetention;
-import com.bohan.android.bakingapp.PrefsHelper;
-import com.bohan.android.bakingapp.Utils.RxUtils;
+import com.bohan.android.bakingapp.MVP.Utils.Prefs.PrefsHelper;
+import com.bohan.android.bakingapp.MVP.Utils.RxUtils;
 
 
 import java.util.List;

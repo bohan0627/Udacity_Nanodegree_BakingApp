@@ -29,9 +29,9 @@ import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps.RecipeStepSingleFragment;
 import com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps.RecipeStepsActivity;
 import com.bohan.android.bakingapp.R;
-import com.bohan.android.bakingapp.Utils.FragmentUtils;
-import com.bohan.android.bakingapp.Utils.StringUtils;
-import com.bohan.android.bakingapp.Utils.TextViewUtils;
+import com.bohan.android.bakingapp.MVP.Utils.FragmentUtils;
+import com.bohan.android.bakingapp.MVP.Utils.StringUtils;
+import com.bohan.android.bakingapp.MVP.Utils.TextViewUtils;
 
 import java.util.ArrayList;
 import java.util.List;

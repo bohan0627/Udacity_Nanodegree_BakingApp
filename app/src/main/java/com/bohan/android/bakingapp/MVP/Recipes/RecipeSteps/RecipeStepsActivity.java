@@ -7,9 +7,9 @@ package com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.bohan.android.bakingapp.BakingApp;
+import com.bohan.android.bakingapp.MVP.BakingApp;
 import com.bohan.android.bakingapp.R;
-import com.bohan.android.bakingapp.Utils.FragmentUtils;
+import com.bohan.android.bakingapp.MVP.Utils.FragmentUtils;
 
 import javax.inject.Inject;
 

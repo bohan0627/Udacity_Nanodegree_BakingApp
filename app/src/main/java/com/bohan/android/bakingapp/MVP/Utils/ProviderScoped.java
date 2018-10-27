@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp;
+package com.bohan.android.bakingapp.MVP.Utils;
 
 /**
  * Created by Bo Han.
@@ -11,6 +11,6 @@ import javax.inject.Scope;
 
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FragmentScoped {
+public @interface ProviderScoped {
 
 }

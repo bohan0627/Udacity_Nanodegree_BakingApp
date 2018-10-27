@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp.widget;
+package com.bohan.android.bakingapp.MVP.widget;
 
 /**
  * Created by Bo Han.
@@ -14,7 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bohan.android.bakingapp.BakingApp;
+import com.bohan.android.bakingapp.MVP.BakingApp;
 import com.bohan.android.bakingapp.R;
 
 import java.util.Set;

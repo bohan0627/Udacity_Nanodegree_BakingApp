@@ -1,10 +1,13 @@
-package com.bohan.android.bakingapp;
+package com.bohan.android.bakingapp.MVP.Utils.Prefs;
 
 /**
  * Created by Bo Han.
  */
 
 import android.content.Context;
+
+import com.bohan.android.bakingapp.MVP.Utils.ApplicationContext;
+
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;

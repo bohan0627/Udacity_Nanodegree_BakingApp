@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp.widget;
+package com.bohan.android.bakingapp.MVP.widget;
 
 /**
  * Created by Bo Han.
@@ -9,10 +9,10 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.widget.RemoteViews;
 
-import com.bohan.android.bakingapp.BakingApp;
+import com.bohan.android.bakingapp.MVP.BakingApp;
 import com.bohan.android.bakingapp.BaseModel.Ingredient;
 import com.bohan.android.bakingapp.R;
-import com.bohan.android.bakingapp.Utils.StringUtils;
+import com.bohan.android.bakingapp.MVP.Utils.StringUtils;
 
 import java.util.List;
 

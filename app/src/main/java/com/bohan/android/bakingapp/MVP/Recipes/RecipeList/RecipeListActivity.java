@@ -11,10 +11,10 @@ import androidx.annotation.VisibleForTesting;
 import androidx.test.espresso.IdlingResource;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.bohan.android.bakingapp.BakingApp;
+import com.bohan.android.bakingapp.MVP.BakingApp;
 import com.bohan.android.bakingapp.R;
-import com.bohan.android.bakingapp.RecipesIdlingResource;
-import com.bohan.android.bakingapp.Utils.FragmentUtils;
+import com.bohan.android.bakingapp.MVP.Utils.RecipesIdlingResource;
+import com.bohan.android.bakingapp.MVP.Utils.FragmentUtils;
 
 import javax.inject.Inject;
 

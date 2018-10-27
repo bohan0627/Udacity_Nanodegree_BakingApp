@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp.widget;
+package com.bohan.android.bakingapp.MVP.widget;
 
 /**
  * Created by Bo Han.

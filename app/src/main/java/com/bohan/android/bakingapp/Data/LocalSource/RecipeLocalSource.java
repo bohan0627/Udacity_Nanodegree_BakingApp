@@ -8,7 +8,7 @@ import com.bohan.android.bakingapp.BaseModel.Ingredient;
 import com.bohan.android.bakingapp.BaseModel.Recipe;
 import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.Data.RecipeSource;
-import com.bohan.android.bakingapp.Utils.DBUtilsCustomized;
+import com.bohan.android.bakingapp.MVP.Utils.DBUtilsCustomized;
 import com.squareup.sqlbrite2.BriteDatabase;
 import java.util.List;
 import java.util.Objects;

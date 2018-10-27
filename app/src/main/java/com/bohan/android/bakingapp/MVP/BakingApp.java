@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp;
+package com.bohan.android.bakingapp.MVP;
 
 /**
  * Created by Bo Han.
@@ -6,6 +6,8 @@ package com.bohan.android.bakingapp;
  */
 
 import android.app.Application;
+
+import com.bohan.android.bakingapp.BuildConfig;
 import com.bohan.android.bakingapp.Data.DaggerRecipeRepoComponent;
 import com.bohan.android.bakingapp.Data.RecipeRepoComponent;
 import com.facebook.stetho.Stetho;

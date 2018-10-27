@@ -1,4 +1,4 @@
-package com.bohan.android.bakingapp;
+package com.bohan.android.bakingapp.MVP.Utils.Prefs;
 
 /**
  * Created by Bo Han.
@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.bohan.android.bakingapp.BaseModel.Recipe;
+import com.bohan.android.bakingapp.MVP.Utils.ApplicationContext;
 
 import java.util.HashSet;
 import java.util.List;

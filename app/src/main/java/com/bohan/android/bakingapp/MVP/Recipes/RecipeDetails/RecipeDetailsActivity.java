@@ -9,9 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import com.bohan.android.bakingapp.BakingApp;
+import com.bohan.android.bakingapp.MVP.BakingApp;
 import com.bohan.android.bakingapp.R;
-import com.bohan.android.bakingapp.Utils.FragmentUtils;
+import com.bohan.android.bakingapp.MVP.Utils.FragmentUtils;
 import androidx.appcompat.app.AppCompatActivity;
 
 import javax.inject.Inject;

@@ -8,7 +8,7 @@ import com.bohan.android.bakingapp.BaseModel.Ingredient;
 import com.bohan.android.bakingapp.BaseModel.Recipe;
 import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.Data.RecipeSource;
-import com.bohan.android.bakingapp.Utils.RxUtils;
+import com.bohan.android.bakingapp.MVP.Utils.RxUtils;
 
 import java.util.List;
 
