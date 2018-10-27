@@ -26,6 +26,7 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 //import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
@@ -35,7 +36,9 @@ import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+import com.google.android.exoplayer2.ui.PlayerView;
+//import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
@@ -57,11 +60,12 @@ public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.Even
     @BindView(R.id.recipe_step_desc)
     TextView descTextView;
     @BindView(R.id.recipe_step_video)
-    SimpleExoPlayerView exoPlayerView;
+    PlayerView exoPlayerView;
 
     @BindBool(R.bool.two_pane_mode)
     boolean isTwoPane;
 
+    //SimpleExoPlayer exoPlayer;
     SimpleExoPlayer exoPlayer;
     private MediaSessionCompat mediaSession;
     private PlaybackStateCompat.Builder stateBuilder;
@@ -75,7 +79,7 @@ public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.Even
         arguments.putString(EXTRA_DESCRIPTION_ID, description);
         arguments.putString(EXTRA_VIDEO_URL_ID, videoUrl);
         arguments.putString(EXTRA_IMAGE_URL_ID, imageUrl);
-        RecipeStepSingleFragment fragment = new RecipeStepSinglePageFragment();
+        RecipeStepSingleFragment fragment = new RecipeStepSingleFragment();
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -103,11 +107,13 @@ public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.Even
 
         if (imageUrl != null && !imageUrl.isEmpty()) {
             // Load and show Image
+
             Glide.clear(stepThumbnail);
-            Glide.with(this)
+            Glide.with(getContext())
                     .load(imageUrl)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(stepThumbnail);
+
             setViewVisibility(stepThumbnail, true);
         } else {
             // Hide image view
@@ -157,7 +163,7 @@ public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.Even
         }
     }
 
-    private void expandVideoView(SimpleExoPlayerView exoPlayer) {
+    private void expandVideoView(PlayerView exoPlayer) {
         exoPlayer.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
         exoPlayer.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
     }
@@ -239,10 +245,7 @@ public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.Even
         }
     }
 
-    @Override
-    public void onTimelineChanged(Timeline timeline, Object manifest) {
 
-    }
 
     @Override
     public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
@@ -256,9 +259,9 @@ public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.Even
 
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-        if ((playbackState == ExoPlayer.STATE_READY) && playWhenReady) {
+        if ((playbackState == Player.STATE_READY) && playWhenReady) {
             stateBuilder.setState(PlaybackStateCompat.STATE_PLAYING, exoPlayer.getCurrentPosition(), 1f);
-        } else if ((playbackState == ExoPlayer.STATE_READY)) {
+        } else if ((playbackState == Player.STATE_READY)) {
             stateBuilder.setState(PlaybackStateCompat.STATE_PAUSED, exoPlayer.getCurrentPosition(), 1f);
         }
         mediaSession.setPlaybackState(stateBuilder.build());
@@ -269,10 +272,6 @@ public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.Even
 
     }
 
-    @Override
-    public void onPositionDiscontinuity() {
-
-    }
 
     @Override
     public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
