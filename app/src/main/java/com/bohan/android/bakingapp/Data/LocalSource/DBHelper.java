@@ -1,13 +1,12 @@
 package com.bohan.android.bakingapp.Data.LocalSource;
 
+/**
+ * Created by Bo Han.
+ */
+
 import android.content.Context;
-//import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-//import androidx.sqlite.db.SupportSQLiteDatabase;
-//import androidx.sqlite.db.SupportSQLiteOpenHelper;
-//import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 
 public class DBHelper extends SQLiteOpenHelper{
 

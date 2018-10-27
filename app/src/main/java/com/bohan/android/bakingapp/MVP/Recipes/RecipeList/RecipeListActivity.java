@@ -1,21 +1,16 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeList;
 
-import android.os.Bundle;
-//import android.support.annotation.NonNull;
-//import android.support.annotation.Nullable;
-//import android.support.annotation.VisibleForTesting;
-//import android.support.v7.app.AppCompatActivity;
+/**
+ * Created by Bo Han.
+ */
 
+import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.test.espresso.IdlingResource;
 import android.view.Menu;
 import android.view.MenuItem;
-//import androidx.appcompat.view.*;
-
-
 import com.bohan.android.bakingapp.BakingApp;
 import com.bohan.android.bakingapp.R;
 import com.bohan.android.bakingapp.RecipesIdlingResource;

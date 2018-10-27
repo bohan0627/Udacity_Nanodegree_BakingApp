@@ -1,5 +1,9 @@
 package com.bohan.android.bakingapp.BaseModel;
 
+/**
+ * Created by Bo Han.
+ */
+
 import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;

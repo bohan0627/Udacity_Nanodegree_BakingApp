@@ -1,10 +1,12 @@
 package com.bohan.android.bakingapp.Utils;
 
+/**
+ * Created by Bo Han.
+ */
+
 import com.google.gson.TypeAdapterFactory;
 import com.ryanharter.auto.value.gson.GsonTypeAdapterFactory;
-/**
- * @author bohan
- */
+
 @GsonTypeAdapterFactory
 public abstract class GsonUtils implements TypeAdapterFactory {
 

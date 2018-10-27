@@ -1,18 +1,14 @@
 package com.bohan.android.bakingapp.Utils;
 
-//import android.support.annotation.NonNull;
-//import android.support.v4.app.Fragment;
-//import android.support.v4.app.FragmentManager;
-//import android.support.v4.app.FragmentTransaction;
+/**
+ * Created by Bo Han.
+ */
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import io.reactivex.annotations.NonNull;
 
-/**
- * @author bohan
- */
 public class FragmentUtils {
 
     public static void replaceFragment(@NonNull FragmentManager fragmentManager,

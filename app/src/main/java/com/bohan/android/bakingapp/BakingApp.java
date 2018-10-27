@@ -1,19 +1,17 @@
 package com.bohan.android.bakingapp;
 
-import android.app.Application;
-
-import com.bohan.android.bakingapp.Data.DaggerRecipeRepoComponent;
-import com.bohan.android.bakingapp.Data.RecipeRepoComponent;
-//import com.bohan.android.bakingapp.Data.DaggerRecipeRepoComponent;
-import com.facebook.stetho.Stetho;
-import com.squareup.leakcanary.LeakCanary;
-//import com.facebook.stetho.Stetho;
-//import com.squareup.leakcanary.LeakCanary;
-
-import timber.log.Timber;
 /**
+ * Created by Bo Han.
  * This class is partially aimed to analysis memory leak
  */
+
+import android.app.Application;
+import com.bohan.android.bakingapp.Data.DaggerRecipeRepoComponent;
+import com.bohan.android.bakingapp.Data.RecipeRepoComponent;
+import com.facebook.stetho.Stetho;
+import com.squareup.leakcanary.LeakCanary;
+import timber.log.Timber;
+
 public class BakingApp extends Application {
     private RecipeRepoComponent recipeRepositoryComponent;
 

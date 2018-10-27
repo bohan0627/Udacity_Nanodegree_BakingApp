@@ -1,7 +1,10 @@
 package com.bohan.android.bakingapp.widget;
 
+/**
+ * Created by Bo Han.
+ */
+
 import com.bohan.android.bakingapp.BakingModule;
-//import com.bohan.android.bakingapp.Data.RecipeRepo;
 import com.bohan.android.bakingapp.Data.RecipeRepoComponent;
 import com.bohan.android.bakingapp.Utils.ProviderScoped;
 

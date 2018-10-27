@@ -1,14 +1,15 @@
 package com.bohan.android.bakingapp.Utils;
 
+/**
+ * Created by Bo Han.
+ */
+
 import android.content.Context;
 
 import com.bohan.android.bakingapp.R;
 
 import java.util.Locale;
 
-/**
- * @author bohan
- */
 
 public class StringUtils {
     public static String formatIngdedient(Context context, String name, float quantity, String measure) {

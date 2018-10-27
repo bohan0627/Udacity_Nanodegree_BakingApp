@@ -1,11 +1,10 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps;
 
-import android.content.Context;
-//import android.support.annotation.Nullable;
-//import android.support.v4.app.Fragment;
-//import android.support.v4.app.FragmentManager;
-//import android.support.v4.app.FragmentPagerAdapter;
+/**
+ * Created by Bo Han.
+ */
 
+import android.content.Context;
 import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.R;
 
@@ -16,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.annotations.Nullable;
 
 public class RecipeStepsAdapter extends FragmentPagerAdapter {
 

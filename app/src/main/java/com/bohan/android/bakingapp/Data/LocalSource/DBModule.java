@@ -1,27 +1,21 @@
 package com.bohan.android.bakingapp.Data.LocalSource;
 
-import android.content.Context;
-//import android.support.annotation.NonNull;
+/**
+ * Created by Bo Han.
+ */
 
+import android.content.Context;
 import com.bohan.android.bakingapp.ApplicationContext;
-//import com.squareup.sqlbrite3.BriteDatabase;
-//import com.squareup.sqlbrite3.SqlBrite;
 import com.squareup.sqlbrite2.SqlBrite;
 import com.squareup.sqlbrite2.BriteDatabase;
-
 import javax.inject.Singleton;
-
-
-//import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import dagger.Module;
 import dagger.Provides;
 import androidx.annotation.NonNull;
-//import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
-//import rx.Scheduler;
-//import rx.schedulers.Schedulers;
+
 
 @Module
 public class DBModule {

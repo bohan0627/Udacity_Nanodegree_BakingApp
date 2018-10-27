@@ -1,5 +1,8 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails;
 
+/**
+ * Created by Bo Han.
+ */
 
 import com.bohan.android.bakingapp.Data.RecipeRepoComponent;
 import com.bohan.android.bakingapp.FragmentScoped;

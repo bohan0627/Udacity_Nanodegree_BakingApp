@@ -1,5 +1,9 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails;
 
+/**
+ * Created by Bo Han.
+ */
+
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.style.StyleSpan;
@@ -8,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-//import android.support.annotation.Nullable;
-//import android.support.v4.app.Fragment;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;

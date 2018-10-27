@@ -1,5 +1,9 @@
 package com.bohan.android.bakingapp.Utils;
 
+/**
+ * Created by Bo Han.
+ */
+
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.StyleSpan;

@@ -1,5 +1,9 @@
 package com.bohan.android.bakingapp.Data.LocalSource;
 
+/**
+ * Created by Bo Han.
+ */
+
 import android.provider.BaseColumns;
 
 public class IngredientContract {

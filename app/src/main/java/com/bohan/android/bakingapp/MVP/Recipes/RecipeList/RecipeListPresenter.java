@@ -1,7 +1,10 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeList;
 
+/**
+ * Created by Bo Han.
+ */
+
 import com.bohan.android.bakingapp.Data.RecipeRepo;
-//import com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails.RecipeDetailsContract;
 import com.bohan.android.bakingapp.RecipesIdlingResource;
 
 import javax.inject.Inject;

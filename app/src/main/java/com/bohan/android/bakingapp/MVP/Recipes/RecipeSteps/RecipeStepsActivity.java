@@ -1,11 +1,12 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps;
 
+/**
+ * Created by Bo Han.
+ */
+
 import android.content.Context;
 import android.content.Intent;
-//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-
 import com.bohan.android.bakingapp.BakingApp;
 import com.bohan.android.bakingapp.R;
 import com.bohan.android.bakingapp.Utils.FragmentUtils;

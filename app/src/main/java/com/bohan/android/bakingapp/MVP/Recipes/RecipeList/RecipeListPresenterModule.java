@@ -1,6 +1,8 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeList;
 
-//import com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails.RecipeDetailsContract;
+/**
+ * Created by Bo Han.
+ */
 
 import dagger.Module;
 import dagger.Provides;

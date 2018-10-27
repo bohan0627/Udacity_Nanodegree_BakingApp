@@ -1,10 +1,8 @@
 package com.bohan.android.bakingapp.Data.LocalSource;
 
 /**
- * @author Bo Han
+ * Created by Bo Han.
  */
-
-import android.database.sqlite.SQLiteDatabase;
 
 import com.bohan.android.bakingapp.BaseModel.Ingredient;
 import com.bohan.android.bakingapp.BaseModel.Recipe;
@@ -12,14 +10,9 @@ import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.Data.RecipeSource;
 import com.bohan.android.bakingapp.Utils.DBUtilsCustomized;
 import com.squareup.sqlbrite2.BriteDatabase;
-//import com.squareup.sqlbrite3.BriteDatabase.Transaction;
-//import hu.akarnokd.rxjava.interop.RxJavaInterop;
-
 import java.util.List;
 import java.util.Objects;
-
 import javax.inject.Inject;
-
 import io.reactivex.Observable;
 
 public class RecipeLocalSource implements RecipeSource {

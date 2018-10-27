@@ -1,6 +1,9 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeList;
 
-//import android.support.v4.app.Fragment;
+/**
+ * Created by Bo Han.
+ */
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;

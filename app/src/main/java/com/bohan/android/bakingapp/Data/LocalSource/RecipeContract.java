@@ -1,5 +1,9 @@
 package com.bohan.android.bakingapp.Data.LocalSource;
 
+/**
+ * Created by Bo Han.
+ */
+
 public class RecipeContract {
     public static abstract class RecipeEntry {
 

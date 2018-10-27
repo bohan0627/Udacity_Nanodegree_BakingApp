@@ -1,15 +1,15 @@
 package com.bohan.android.bakingapp.widget;
 
+/**
+ * Created by Bo Han.
+ */
+
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-//import android.support.annotation.Nullable;
 import androidx.annotation.Nullable;
-//import android.support.v4.content.ContextCompat;
-//import android.support.v7.app.AppCompatActivity;
-//import android.support.v7.widget.AppCompatRadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;

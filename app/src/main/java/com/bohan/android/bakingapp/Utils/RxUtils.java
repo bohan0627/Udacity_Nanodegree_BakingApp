@@ -1,12 +1,13 @@
 package com.bohan.android.bakingapp.Utils;
 
+/**
+ * Created by Bo Han.
+ */
+
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * @author bohan
- */
 
 public class RxUtils {
     public static <T> ObservableTransformer<T, T> applySchedulers() {

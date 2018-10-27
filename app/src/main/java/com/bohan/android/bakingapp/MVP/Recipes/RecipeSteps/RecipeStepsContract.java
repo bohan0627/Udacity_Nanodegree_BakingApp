@@ -1,9 +1,12 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps;
 
+/**
+ * Created by Bo Han.
+ */
+
 import com.bohan.android.bakingapp.BaseModel.Step;
 import com.bohan.android.bakingapp.MVP.BasePresenter;
 import com.bohan.android.bakingapp.MVP.BaseView;
-import com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails.RecipeDetailsContract;
 
 import java.util.List;
 

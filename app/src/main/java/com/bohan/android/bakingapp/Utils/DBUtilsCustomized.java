@@ -1,5 +1,9 @@
 package com.bohan.android.bakingapp.Utils;
 
+/**
+ * Created by Bo Han.
+ */
+
 import android.content.ContentValues;
 import android.database.Cursor;
 
@@ -15,9 +19,6 @@ import java.util.List;
 
 import io.reactivex.annotations.NonNull;
 
-/**
- * @author bohan
- */
 
 public class DBUtilsCustomized {
 

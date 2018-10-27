@@ -1,7 +1,9 @@
 package com.bohan.android.bakingapp.MVP.Recipes.RecipeDetails;
 
-//import android.support.annotation.NonNull;
-//import android.support.v7.widget.RecyclerView;
+/**
+ * Created by Bo Han.
+ */
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
