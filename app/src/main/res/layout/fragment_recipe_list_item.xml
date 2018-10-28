@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:paddingStart="@dimen/material_card_title_block_padding_horizontal"
             android:paddingEnd="0dp"
-            app:srcCompat="@drawable/recipe_icon"
+            app:srcCompat="@drawable/recipe_icon_new"
             tools:ignore="ContentDescription"/>
 
 
@@ -37,6 +37,8 @@
                 android:id="@+id/list_recipe_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/alfa_slab_one"
+                android:textColor="@color/colorPrimaryDark"
                 android:paddingBottom="@dimen/material_card_title_block_large_subtitle_margin_top"
                 android:textSize="@dimen/material_card_title_block_large_title_text_size"
                 tools:text="Nutella Pie"/>
@@ -45,9 +47,10 @@
                 android:id="@+id/list_recipe_servings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorSecondaryText"
-                android:textSize="@dimen/material_card_title_block_subtitle_text_size"
-                tools:text="Servings: X"/>
+                android:fontFamily="@font/baloo_bhaina"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/material_card_supporting_text_text_size"
+                tools:text="Servings: X" />
 
         </LinearLayout>
 

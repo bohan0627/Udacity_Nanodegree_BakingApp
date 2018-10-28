@@ -12,13 +12,15 @@
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="@font/baloo_bhaina"
         tools:text="Nutella Pie"/>
 
     <LinearLayout
         android:id="@+id/widget_ingredients_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
         android:orientation="vertical"/>
 
 </LinearLayout>

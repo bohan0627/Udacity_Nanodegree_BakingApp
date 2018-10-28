@@ -12,11 +12,13 @@
         android:id="@+id/list_step_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/material_list_text_first_position_margin_start"
         android:layout_centerVertical="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginStart="@dimen/material_list_text_first_position_margin_start"
+        android:fontFamily="@font/baloo_bhaina"
         android:textSize="@dimen/material_list_normal_primary_text_size"
         tools:ignore="RelativeOverlap"
-        tools:text="Recipe Introduction"/>
+        tools:text="Recipe Introduction" />
 
     <ImageView
         android:id="@+id/list_step_video_icon"

@@ -12,7 +12,7 @@
         android:background="@color/colorPrimary"
         app:tabGravity="fill"
         app:tabMode="scrollable"
-        app:tabSelectedTextColor="@color/colorAccent"/>
+        app:tabSelectedTextColor="@color/colorPrimaryDark"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/recipe_step_viewpager"
