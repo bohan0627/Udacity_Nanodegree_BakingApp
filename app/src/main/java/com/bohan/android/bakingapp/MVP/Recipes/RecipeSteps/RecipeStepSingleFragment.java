@@ -29,6 +29,7 @@ import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.ExtractorMediaSource.Factory;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
@@ -43,7 +44,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.EventListener {
+public class RecipeStepSingleFragment extends Fragment implements Player.EventListener {
 
     private static final String EXTRA_DESCRIPTION_ID = "EXTRA_DESCRIPTION_ID";
     private static final String EXTRA_VIDEO_URL_ID = "EXTRA_VIDEO_URL_ID";
@@ -222,8 +223,12 @@ public class RecipeStepSingleFragment extends Fragment implements ExoPlayer.Even
             exoPlayer.addListener(this);
 
             String userAgent = Util.getUserAgent(getContext(), "StepVideo");
+            /*
             MediaSource mediaSource = new ExtractorMediaSource(mediaUri, new DefaultDataSourceFactory(
                     getContext(), userAgent), new DefaultExtractorsFactory(), null, null);
+                    */
+            MediaSource mediaSource = new ExtractorMediaSource.Factory(new DefaultDataSourceFactory(
+                    getContext(), userAgent)).setExtractorsFactory(new DefaultExtractorsFactory()).createMediaSource(mediaUri);
             exoPlayer.prepare(mediaSource);
             exoPlayer.setPlayWhenReady(true);
         }
