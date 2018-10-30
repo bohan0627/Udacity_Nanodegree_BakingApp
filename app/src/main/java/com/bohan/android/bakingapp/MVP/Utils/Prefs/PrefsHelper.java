@@ -20,10 +20,10 @@ import javax.inject.Singleton;
 @Singleton
 public class PrefsHelper {
 
-    private static final String PREFS_FILE_NAME = "baking_app_prefs";
-    private static final String PREFERENCE_SYNCED = "baking_app_synced";
-    private static final String PREFERENCE_RECIPES = "baking_app_recipes";
-    private static final String PREFERENCE_CHOSEN_RECIPE = "baking_app_widget_chosen_recipe_";
+    private static final String PREFS_FILE_NAME = "baking_prefs";
+    private static final String PREFERENCE_SYNCED = "baking_synced";
+    private static final String PREFERENCE_RECIPES = "baking_recipes";
+    private static final String PREFERENCE_CHOSEN_RECIPE = "baking_widget_chosen_recipe_";
 
     private final SharedPreferences sharedPreferences;
 

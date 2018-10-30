@@ -23,35 +23,33 @@ import timber.log.Timber;
 public class WidgetProvider extends AppWidgetProvider {
 
     @Inject
-    WidgetDataHelper widgetDataHelper;
+    WidgetHelper widgetHelper;
 
     @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        super.onUpdate(context, appWidgetManager, appWidgetIds);
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] widgetIds) {
+        super.onUpdate(context, appWidgetManager, widgetIds);
 
-        Timber.d("onUpdate");
+        Timber.d("Updating");
 
-        DaggerWidgetDataHelperComponent.builder()
+        DaggerWidgetHelperComponent.builder()
                 .recipeRepoComponent(
                         ((BakingApp) context.getApplicationContext()).getRecipeRepositoryComponent())
                 .build()
                 .inject(this);
 
-        for (int appWidgetId : appWidgetIds) {
-            String recipeName = widgetDataHelper.getRecipeNameFromPrefs(appWidgetId);
+        for (int widgetId : widgetIds) {
+            String recipeName = widgetHelper.getRecipeNameFromPrefs(widgetId);
 
-            widgetDataHelper
+            widgetHelper
                     .getIngredientsList(recipeName)
                     .take(1)
                     .subscribe(
-                            // OnNext
                             ingredients ->
                                     WidgetProvider
-                                            .updateAppWidgetContent(context, appWidgetManager, appWidgetId, recipeName,
+                                            .updateWidgetContent(context, appWidgetManager, widgetId, recipeName,
                                                     ingredients),
-                            // OnError
                             throwable ->
-                                    Timber.d("Error: unable to populate widget data."));
+                                    Timber.d("Error: unable to load data."));
         }
     }
 
@@ -59,22 +57,22 @@ public class WidgetProvider extends AppWidgetProvider {
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context, appWidgetIds);
 
-        DaggerWidgetDataHelperComponent.builder()
+        DaggerWidgetHelperComponent.builder()
                 .recipeRepoComponent(
                         ((BakingApp) context.getApplicationContext()).getRecipeRepositoryComponent())
                 .build()
                 .inject(this);
 
         for (int appWidgetId : appWidgetIds) {
-            widgetDataHelper.deleteRecipeFromPrefs(appWidgetId);
+            widgetHelper.deleteRecipeFromPrefs(appWidgetId);
         }
     }
 
-    public static void updateAppWidgetContent(Context context, AppWidgetManager appWidgetManager,
-                                              int appWidgetId, String recipeName, List<Ingredient> ingredients) {
+    public static void updateWidgetContent(Context context, AppWidgetManager appWidgetManager,
+                                              int widgetId, String recipeName, List<Ingredient> ingredients) {
 
-        Timber.d("updateAppWidgetContent call...");
-        Timber.d("id: " + appWidgetId + ", name: " + recipeName + "ingredients: " + ingredients.size());
+        Timber.d("updating Widget Content...");
+        Timber.d("id: " + widgetId + ", name: " + recipeName + "ingredients: " + ingredients.size());
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_ingredients_list);
         views.setTextViewText(R.id.widget_recipe_name, recipeName);
@@ -91,7 +89,7 @@ public class WidgetProvider extends AppWidgetProvider {
             views.addView(R.id.widget_ingredients_container, ingredientView);
         }
 
-        appWidgetManager.updateAppWidget(appWidgetId, views);
+        appWidgetManager.updateAppWidget(widgetId, views);
     }
 
 }

@@ -22,14 +22,12 @@ import com.bohan.android.bakingapp.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
-import com.google.android.exoplayer2.source.ExtractorMediaSource.Factory;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
@@ -62,7 +60,6 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
     @BindBool(R.bool.two_pane_mode)
     boolean isTwoPane;
 
-    //SimpleExoPlayer exoPlayer;
     SimpleExoPlayer exoPlayer;
     private MediaSessionCompat mediaSession;
     private PlaybackStateCompat.Builder stateBuilder;
@@ -71,7 +68,7 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
 
     public static RecipeStepSingleFragment newInstance(String description, String videoUrl,
                                                            String imageUrl) {
-        //
+
         Bundle arguments = new Bundle();
         arguments.putString(EXTRA_DESCRIPTION_ID, description);
         arguments.putString(EXTRA_VIDEO_URL_ID, videoUrl);

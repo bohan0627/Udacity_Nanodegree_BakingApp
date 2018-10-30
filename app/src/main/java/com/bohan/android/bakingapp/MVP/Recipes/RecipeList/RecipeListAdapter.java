@@ -28,9 +28,9 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     private List<Recipe> recipeList;
     final OnRecipeClickListener recipeClickListener;
 
-    RecipeListAdapter(List<Recipe> recipes, OnRecipeClickListener listener) {
+    RecipeListAdapter(List<Recipe> recipes, OnRecipeClickListener recipeClickListener) {
         setRecipes(recipes);
-        recipeClickListener = listener;
+        this.recipeClickListener = recipeClickListener;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         @BindString(R.string.recipe_list_servings_text)
         String servingsText;
 
-        private int currentId;
+        private int curId;
 
         RecipeViewHolder(View itemView) {
             super(itemView);
@@ -87,7 +87,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
         void bindTo(@NonNull Recipe recipe) {
 
-            currentId = recipe.id();
+            curId = recipe.id();
 
             String name = recipe.name();
             recipeName.setText(name);
@@ -97,7 +97,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
         @Override
         public void onClick(View v) {
-            recipeClickListener.recipeClicked(currentId);
+            recipeClickListener.recipeClicked(curId);
         }
     }
 

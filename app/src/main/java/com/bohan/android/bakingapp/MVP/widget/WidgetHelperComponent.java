@@ -12,7 +12,7 @@ import dagger.Component;
 
 @ProviderScoped
 @Component(dependencies = RecipeRepoComponent.class, modules = BakingModule.class)
-interface WidgetDataHelperComponent {
+interface WidgetHelperComponent {
 
     void inject(WidgetProvider provider);
     void inject(WidgetConfigActivity activity);

@@ -25,6 +25,7 @@ public class RecipeListActivity extends AppCompatActivity{
     @Inject
     RecipeListPresenter recipeListPresenter;
 
+
     @Nullable
     private RecipesIdlingResource idlingResource;
 
@@ -71,6 +72,7 @@ public class RecipeListActivity extends AppCompatActivity{
 
 
 
+
     @VisibleForTesting
     @NonNull
     public IdlingResource getIdlingResource() {
@@ -79,5 +81,6 @@ public class RecipeListActivity extends AppCompatActivity{
         }
         return idlingResource;
     }
+
 
 }

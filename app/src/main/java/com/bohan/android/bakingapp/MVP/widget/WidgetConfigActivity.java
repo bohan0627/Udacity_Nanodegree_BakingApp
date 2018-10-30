@@ -33,15 +33,13 @@ import androidx.appcompat.widget.AppCompatRadioButton;
 
 public class WidgetConfigActivity extends AppCompatActivity {
 
-    @Inject
-    WidgetDataHelper widgetDataHelper;
-
+    private int widgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
     private CompositeDisposable disposableList;
-    private int appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+    @Inject
+    WidgetHelper widgetHelper;
 
     @BindView(R.id.radioGroup)
     RadioGroup namesRadioGroup;
-
     @BindString(R.string.widget_config_no_data)
     String noDataErrorMessage;
 
@@ -49,50 +47,46 @@ public class WidgetConfigActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        int curIndex = 0;
+        Set<String> recipeNames = widgetHelper.getRecipeNamesFromPrefs();
+
         setResult(RESULT_CANCELED);
         setContentView(R.layout.widget_configuration);
         ButterKnife.bind(this);
 
         disposableList = new CompositeDisposable();
 
-        DaggerWidgetDataHelperComponent.builder()
+        DaggerWidgetHelperComponent.builder()
                 .recipeRepoComponent(
                         ((BakingApp) getApplication()).getRecipeRepositoryComponent())
                 .build()
                 .inject(this);
 
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-
         if (extras != null) {
-            appWidgetId = extras.getInt(
+            widgetId = extras.getInt(
                     AppWidgetManager.EXTRA_APPWIDGET_ID,
                     AppWidgetManager.INVALID_APPWIDGET_ID);
 
-            if (appWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
+            if (widgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
                 finish();
             }
         }
 
-        Set<String> names = widgetDataHelper.getRecipeNamesFromPrefs();
-
-        if (names.size() == 0) {
+        if (recipeNames.size() == 0) {
             Toast.makeText(this, noDataErrorMessage, Toast.LENGTH_SHORT).show();
             finish();
         }
 
-        // Fill the radioGroup
-        int currentIndex = 0;
-
-        for (String name : names) {
+        for (String name : recipeNames) {
             AppCompatRadioButton button = new AppCompatRadioButton(this);
             button.setText(name);
-            button.setId(currentIndex++);
+            button.setId(curIndex++);
             setupRadioButtonColor(button);
             namesRadioGroup.addView(button);
         }
 
-        // Check the first item when loaded
         if (namesRadioGroup.getChildCount() > 0) {
             ((AppCompatRadioButton) namesRadioGroup.getChildAt(0)).setChecked(true);
         }
@@ -105,28 +99,24 @@ public class WidgetConfigActivity extends AppCompatActivity {
         String recipeName = ((AppCompatRadioButton) namesRadioGroup
                 .getChildAt(checkedItemId)).getText().toString();
 
-        widgetDataHelper.saveRecipeNameToPrefs(appWidgetId, recipeName);
-
+        widgetHelper.saveRecipeNameToPrefs(widgetId, recipeName);
         Context context = getApplicationContext();
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 
-        Disposable subscription = widgetDataHelper
+        Disposable subscription = widgetHelper
                 .getIngredientsList(recipeName)
                 .subscribe(
-                        // OnNext
                         ingredients ->
                                 WidgetProvider
-                                        .updateAppWidgetContent(context, appWidgetManager, appWidgetId, recipeName,
+                                        .updateWidgetContent(context, appWidgetManager, widgetId, recipeName,
                                                 ingredients),
-                        // OnError
                         throwable ->
-                                Timber.d("Error: unable to populate widget data."));
+                                Timber.d("Error: unable to load data to widget."));
 
         disposableList.add(subscription);
-
-        Intent resultValue = new Intent();
-        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-        setResult(RESULT_OK, resultValue);
+        Intent result = new Intent();
+        result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
+        setResult(RESULT_OK, result);
         finish();
     }
 

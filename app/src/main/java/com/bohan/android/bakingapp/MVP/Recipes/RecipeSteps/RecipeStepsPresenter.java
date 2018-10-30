@@ -49,12 +49,10 @@ public class RecipeStepsPresenter implements RecipeStepsContract.Presenter {
         Disposable subscription = recipeRepository
                 .getSteps(recipeId)
                 .subscribe(
-                        // OnNext
                         steps -> {
                             stepView.showStepsInViewpager(steps);
                             stepView.move();
                         },
-                        // OnError
                         throwable -> stepView.errorMessage());
 
         disposableList.add(subscription);

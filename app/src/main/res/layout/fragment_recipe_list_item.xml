@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:paddingStart="@dimen/material_card_title_block_padding_horizontal"
             android:paddingEnd="0dp"
-            app:srcCompat="@drawable/recipe_icon_new"
+            app:srcCompat="@drawable/recipe_icon"
             tools:ignore="ContentDescription"/>
 
 

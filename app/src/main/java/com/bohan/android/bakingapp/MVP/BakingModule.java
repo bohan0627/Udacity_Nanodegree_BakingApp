@@ -25,13 +25,13 @@ public class BakingModule {
 
     @Provides
     @ApplicationContext
-    Context provideContext() {
+    public Context provideContext() {
         return context;
     }
 
     @Provides
     @Singleton
-    RecipeRemoteService provideRecipeService() {
+    public RecipeRemoteService provideRecipeService() {
         return ServiceFactory.createFrom(RecipeRemoteService.class, RecipeRemoteService.BASE_URL);
     }
 }
