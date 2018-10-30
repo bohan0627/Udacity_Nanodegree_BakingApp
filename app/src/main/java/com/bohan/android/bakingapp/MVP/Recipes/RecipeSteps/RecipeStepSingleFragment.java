@@ -7,6 +7,8 @@ package com.bohan.android.bakingapp.MVP.Recipes.RecipeSteps;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.Nullable;
@@ -36,6 +38,7 @@ import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.google.android.exoplayer2.C;
 
 import butterknife.BindBool;
 import butterknife.BindView;
@@ -47,6 +50,7 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
     private static final String EXTRA_DESCRIPTION_ID = "EXTRA_DESCRIPTION_ID";
     private static final String EXTRA_VIDEO_URL_ID = "EXTRA_VIDEO_URL_ID";
     private static final String EXTRA_IMAGE_URL_ID = "EXTRA_IMAGE_URL_ID";
+    private static final String EXTRA_PLAYER_POSITION = "extra_player_position";
 
     @BindView(R.id.recipe_step_desc_card)
     CardView descriptionCard;
@@ -65,6 +69,9 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
     private PlaybackStateCompat.Builder stateBuilder;
 
     Unbinder unbinder;
+
+    private long position;
+    //String video = video = getArguments().getString(EXTRA_VIDEO_URL_ID);
 
     public static RecipeStepSingleFragment newInstance(String description, String videoUrl,
                                                            String imageUrl) {
@@ -85,9 +92,31 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        position = C.TIME_UNSET;
+        if (savedInstanceState != null) {
+            //...your code...
+            position = savedInstanceState.getLong(EXTRA_PLAYER_POSITION, C.TIME_UNSET);
+        }
         View view = inflater.inflate(R.layout.fragment_recipe_step_single, container, false);
         unbinder = ButterKnife.bind(this, view);
         return view;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            position = savedInstanceState.getLong(EXTRA_PLAYER_POSITION);
+        }
+
+    }
+
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putLong(EXTRA_PLAYER_POSITION,position);
     }
 
     @Override
@@ -138,9 +167,30 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        /*
+        String video = getArguments().getString(EXTRA_VIDEO_URL_ID);
+        initializePlayer(Uri.parse(video));
+        */
+        /*
+        String video = getArguments().getString(EXTRA_VIDEO_URL_ID);
+
+        if (video != null)
+            initializePlayer(Uri.parse(video));
+            */
+
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
-        releasePlayer();
+        if (exoPlayer != null) {
+            position = exoPlayer.getCurrentPosition();
+            exoPlayer.stop();
+            exoPlayer.release();
+            exoPlayer = null;
+        }
     }
 
     @Override
@@ -212,6 +262,7 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
     }
 
     private void initializePlayer(Uri mediaUri) {
+
         if (exoPlayer == null) {
 
             TrackSelector trackSelector = new DefaultTrackSelector();
@@ -224,11 +275,24 @@ public class RecipeStepSingleFragment extends Fragment implements Player.EventLi
             MediaSource mediaSource = new ExtractorMediaSource(mediaUri, new DefaultDataSourceFactory(
                     getContext(), userAgent), new DefaultExtractorsFactory(), null, null);
                     */
+
             MediaSource mediaSource = new ExtractorMediaSource.Factory(new DefaultDataSourceFactory(
                     getContext(), userAgent)).setExtractorsFactory(new DefaultExtractorsFactory()).createMediaSource(mediaUri);
             exoPlayer.prepare(mediaSource);
             exoPlayer.setPlayWhenReady(true);
+            exoPlayer.seekTo(position);
+
         }
+        else{
+            String userAgent = Util.getUserAgent(getActivity(), getString(R.string.app_name));
+            MediaSource mediaSource = new ExtractorMediaSource.Factory(new DefaultDataSourceFactory(
+                    getContext(), userAgent)).setExtractorsFactory(new DefaultExtractorsFactory()).createMediaSource(mediaUri);
+            exoPlayer.prepare(mediaSource);
+            exoPlayer.setPlayWhenReady(true);
+
+            exoPlayer.seekTo(position);
+        }
+
     }
 
     private void releasePlayer() {

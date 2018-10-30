@@ -20,7 +20,7 @@ public class TextViewUtils {
         int end = start + styledText.length();
         sb.setSpan(style, start, end, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         //This is for make title text size large
-        sb.setSpan(new RelativeSizeSpan(2.0f), start, end, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        sb.setSpan(new RelativeSizeSpan(1.0f), start, end, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         textView.setText(sb);
     }
 }

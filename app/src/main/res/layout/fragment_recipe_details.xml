@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/material_card_edge_margin"
-        android:elevation="@dimen/material_card_elevation_resting"
         app:cardBackgroundColor="@color/colorPrimaryLight"
         tools:targetApi="lollipop">
 
@@ -21,11 +20,11 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo_bhaina"
             android:textColor="@color/colorPrimaryDark"
-            android:paddingTop="@dimen/material_card_title_block_large_padding_top"
-            android:paddingBottom="@dimen/material_card_title_block_large_padding_bottom"
+            android:paddingTop="@dimen/material_card_title_block_small_padding_vertical"
+            android:paddingBottom="@dimen/material_card_supporting_text_padding_bottom"
             android:paddingStart="@dimen/material_card_title_block_padding_horizontal"
             android:paddingEnd="@dimen/material_card_title_block_padding_horizontal"
-            android:textSize="@dimen/material_menu_simple_item_text_size"
+            android:textSize="@dimen/material_card_supporting_text_text_size"
             android:gravity="center"
             tools:text="Ingredients list:\nItem1\nItem2"/>
 

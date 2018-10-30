@@ -14,7 +14,9 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:launchMode="singleTop"
-            android:name=".MVP.Recipes.RecipeList.RecipeListActivity">
+            android:name=".MVP.Recipes.RecipeList.RecipeListActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -24,7 +26,9 @@
 
         <activity
             android:name=".MVP.Recipes.RecipeDetails.RecipeDetailsActivity"
-            android:parentActivityName=".MVP.Recipes.RecipeList.RecipeListActivity">
+            android:parentActivityName=".MVP.Recipes.RecipeList.RecipeListActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MVP.Recipes.RecipeList.RecipeListActivity"/>
@@ -32,7 +36,9 @@
         <activity
             android:label="@string/step_activity_title"
             android:name=".MVP.Recipes.RecipeSteps.RecipeStepsActivity"
-            android:parentActivityName=".MVP.Recipes.RecipeDetails.RecipeDetailsActivity">
+            android:parentActivityName=".MVP.Recipes.RecipeDetails.RecipeDetailsActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MVP.Recipes.RecipeDetails.RecipeDetailsActivity"/>
@@ -48,7 +54,9 @@
                 android:resource="@xml/widget_ingredients"/>
         </receiver>
 
-        <activity android:name=".MVP.widget.WidgetConfigActivity">
+        <activity android:name=".MVP.widget.WidgetConfigActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
             </intent-filter>
